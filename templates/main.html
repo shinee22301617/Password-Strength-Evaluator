@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- <script type="text/javascript" src="{{url_for('static', filename='script.js')}}"></script>  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Password Strength Evaluator</title>
+    <!-- <link rel="stylesheet" href="../static/style.css">
+	<script src="../static/script.js"></script> -->
+</head>
+<body style='width:100%'>
+    <!--   style="background-color: #9A9B9F;" -->
+    <div class='navtitle'>Password Strength Evaluator</div>
+    
+    {% if green %}
+        <div style="background-color: #21C04E; padding-bottom: 20px;">
+    {% elif yellow %}          
+        <div style="background-color: #EAC819; padding-bottom: 20px;">
+    {% elif red %}          
+        <div style="background-color: #C12222; padding-bottom: 20px;">
+    {% else %}
+        <div style="background-color: #9A9B9F; padding-bottom: 20px;">
+    {% endif %}
+
+        <div class='title'>How Strong is Your Password?</div>
+        <br>
+        <form action="{{ url_for('main') }}" method="POST">
+            <input name="password" type="text" id="password" required>
+            <br>
+            <button type="submit" class="submit">Submit</button>
+        </form>
+        <br>
+        <br>
+        <div class="result">
+            {% if green %}
+                <div id='strength'>Strong</div>
+            {% elif yellow %}          
+                <div id='strength'>Medium</div>
+            {% elif red %}          
+                <div id='strength'>Low</div>
+            {% else %}
+                <div id='strength'>Medium? Strong?<br>or even Worse?</div>
+            {% endif %}
+            <br>
+            <div class="container">
+                <div class="colo">Your Password contains:</div>
+                <div class="row">
+                    <div class="col colo">
+                        {% if lower %}
+                            Lower&nbsp;case
+                        {% else %}
+                            <s>Lower&nbsp;case</s>
+                        {% endif %}
+                    </div>
+                    <div class="col colo">
+                        {% if upper %}
+                            Upper&nbsp;case
+                        {% else %}
+                            <s>Upper&nbsp;case</s>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col colo">
+                        {% if num %}
+                            Numbers
+                        {% else %}
+                             <s>Numbers</s>
+                        {% endif %}
+                    </div>
+                    <div class="col colo">
+                        {% if sym %}
+                            Symbols
+                        {% else %}
+                            <s>Symbols</s>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if count %}
+                <br>
+                <div class="colo">We detect that your password contains {{count}} words,</div>
+                <div class="colo">the longest word is <b>{{word}}</b>.</div>
+                {% endif %}
+                <br>
+                <hr size="5px" color=white>
+                {% if time %}
+                <div class="timetitle">It takes Hackers:</div>
+                <div class='time'>
+                    {{ time }}&nbsp;{{ unit }}
+                </div>
+                <div class="timetitle" style='padding-bottom:20px'>to hack your password</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

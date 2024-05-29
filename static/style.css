@@ -1,0 +1,95 @@
+form {
+    margin: auto;
+    width: 35%;
+}
+
+.result {
+    margin: auto;
+    width: 35%;
+}
+
+.navtitle {
+    font-family: 'Baskervville', serif;
+    font-size: 48px;
+    color:#9A9B9F;
+    font-weight:600;
+    background-color:white;
+    margin-bottom: 10px;
+    margin-left:10px;
+}
+
+.title {
+    text-align:center;
+    font-size:72px;
+    color:white;
+    font-style: "Arial";
+    font-weight:600
+}
+
+.time{
+    text-align:center;
+    font-size:54px;
+    color:white;
+    font-style: "Arial";
+    font-weight:600
+}
+
+.timetitle{
+    text-align:center;
+    font-size:28px;
+    color:white;
+    font-style: "Arial";
+    font-weight:600
+}
+
+#password {
+    display: block;
+    margin: 0 auto;
+    font-size:40px;
+    border: 4px solid #486581;  
+    border-radius: 60px;
+    text-align: center; 
+}
+
+.submit {
+    display: block;
+    margin: 0 auto;
+    font-size:40px;
+    background-color: #486581;
+    border-radius: 20px;
+    text-align: center; 
+    color:white;
+    border:5px solid #486581;
+}
+
+.submit:hover {
+    box-shadow: 5px 5px  #888888;
+    color: white;
+  }
+
+#strength {
+    text-align:center;
+    font-size:64px;
+    color:white;
+    font-style: "Arial";
+    font-weight:600
+}
+
+a,a:link,a:visited {
+    color:#9A9B9F;
+    text-decoration: none
+
+}
+a:hover {
+    color:#9A9B9F;
+    background-color: #FFFFFF;
+    text-decoration: none;
+}
+
+.colo {
+    text-align:center;
+    font-size:28px;
+    padding-left:18px;
+    padding-right:18px;
+    color:white;
+}
